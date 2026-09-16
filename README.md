@@ -93,15 +93,24 @@ npx playwright show-trace test-results/<describe-name>-<test-name>-chromium/trac
 
 **Вибір репортерів (3–4 речення):**
 
-> _Вписати тут..._
+Я використовувала html репортер оскільки він зручний для перегляду результатів тестування та інформації про помилки. Для аналізу впалих тестів також використовувала Trace Viewer з trace: зокремаб error-context допоміг переглянути accessibility tree елементів і визначити фактичні ролі та acceessible names елементів.
 
 **Аналіз впалого тесту:**
 
-- **Що** впало:
-- **Як** впало:
-- **Чому** (root cause):
+- **Що** впало: тест `Header > 3.should display correct logo` - локатор `getByAltText(/greencity-logo/i).first()` не знайшов відповідний елемент, тому перевірка `toBeVisible()` завершилась помилкою. 
+- **Як** впало: Playwright протягом 5 секунд очікував елемент, який відповідає локатору `getByAltText(/greencity-logo/i)`, але елемент не був знайдений. У Trace фактичний логотип у header має accessibility name `Image green city logo`.
+- **Чому** (root cause): тест очікує, що alt текст логотипа містить значення `greencity-logo`, оскільки використовує локатор `page.getByAltText(/greencity-logo/i)`. Однак фактичний логотип на сторінці має accessible name `Image green city logo`.          
 
----
+### Артефакти до завдання 1
+-**Скриншот терміналу з результатом прогону:**
+![Результат запуску тестів - частина 1](screenshots/task-1-terminal-1.png)
+![Результат запуску тестів - частина 2](screenshots/task-1-terminal-2.png)
+![Результат запуску тестів - html report - частина 1](screenshots/task-1-html-1.png)
+![Результат запуску тестів - html report - частина 2](screenshots/task-1-html-2.png)
+![Результат запуску тестів - trace viewer - частина 1](screenshots/task-1-trace.png)
+
+-**Файл test-results/results.xml**
+[Task 1 - results.xml](evidences/results.xml)
 
 ## Завдання 2 — Перевірити свій аналіз через AI-агента *(опційно)*
 
@@ -140,15 +149,15 @@ Limit the answer to the three parts above and nothing else.
 
 **Відповідь агента:**
 
-> _Вставити текст або посилання на скриншот..._
+![Відповідь агента](screenshots/task-2.png)
 
 **Порівняння з власним аналізом (3–5 речень):**
 
-> _Вписати тут..._
+Аналіз AI агента збігся із моїм власним аналізом падіння тесту `Header > 3.should display correct logo`. Агент підтвердив , що локатор `getByAltText(/greencity-logo/i).first()` не знаходить елемент, оскільки фактичний accessible name логотипа - `Image green city logo`, який не відповідає заданому. Але агент також додатково звернув увагу на accessible name логотипа у footer -   `GreenCity home`, але ця інформація не впливає на поточний тест. Таким чином агент підтвердив мій висновок і не виявив іншої причини падіння.
 
 **Оцінка дотримання обмежень:**
 
-> _Вписати тут..._
+AI агент дотримався в даному випадку встановлених promt обмежень. Він адав відповідь лише у троьох частинах WHAT, HOW, WHY, не пропонував виправлення, не переписував код і не надавав рекомендацій щодо наступних кроківюВодночас у частині HOW агент додатково зазначив accessible name логотипа у footer, хоча ця інформація не була необхідною для визначення причини падінняю Це можна вважати зайвою деталлю, але вона залишилася у межах аналізу стану сторінки та не порушила основних вимог щодо пропозиції рішень та змін.
 
 ---
 
@@ -166,12 +175,43 @@ Limit the answer to the three parts above and nothing else.
 
 **Що було не так і як виправлено:**
 
-> _Вписати diff або опис по кожному тесту..._
+1. Header > 3. should display correct logo
+Проблема: локатор getByAltText(/greencity-logo/i).first() шукав елемент за alt текстом, який не відповідав фактичному accessible name лого.
+Виправлення: локатор змінено до фактичного accessible name лого - `Image green city logo`.
+
+2. Header > 7. should display login button
+Проблема: тест шукав link з назвою `sign in button`, але елемент представлений як img з accessible name `sign in button`.
+Виправлення: локатор змінено на відповідний фактичному role елемента.
+
+3. Header > 10. should home page has search input
+Проблема: тест очікував, що поле введення пошуку з placeholder буде видимим одразу після завантаження сторінки. Проте на початковому екрані відображається лише іконка пошуку, а власне полевведення зявляється після натискання на неї.
+Виправлення: додано клік по іконці пошуку `Internal search button` перед перевіркою getByOlaceholder9/search/i). 
+
+4. Main Content Section > 1. should display home page text
+Проблема: тест очікував `A new way to grow habits`, але фактичний заголовок сторінки - 'A new way to cultivate useful habits`.
+Виправлення: очікуваний текст у локаторі змінено відповідно до фактичного заголовка.
+
+5. Main Content Section > 4. Newsletter subscription form accepts email input and Subscribe button is clickable
+Проблема: тест вводив `test123@example.com`, але перевіряв, що значення дорівнює `test@example.com`
+Виправлення: очікуване значення змінено на фактично введене `test123@example.com`.
+
+6. Footer Section > 1. Footer navigation links are visible
+Проблема: тест очікував 5 navigation links, але фактично footer містить 6, включно із `Places`.
+Виправлення: до очікуваного списку додано `Places`.
+
+7. Footer Section > 2. Footer "Follow us" social links are visible
+Проблема: у локаторі для LinkedIn була помилка у назві: /leenkedin/i. 
+Виправлення: локатор виправлено на  /linkedin/i, відповідно до фактичного accessible name `LinkedIn link`.
+
 
 **Чи збіглось з початковою гіпотезою:**
 
-> _Вписати тут..._
+Так, внесені виправлення загалом підтвердилися щодо першочергових причин падіння тестів. Після аналізу html report, trace viewer та context error я визначила, що помилки повязані із невідповідністю локаторів, очікуваних значень або очікуваного стану сторінки її фактичній реалізації. 
 
+### Артефакти до завдання 3
+-**Скриншоти успішного прогону:**
+![Завдання 3 - terminal](screenshots/task-3-terminal.png)
+![Завдання 3 - report](screenshots/task-3-report.png)
 ---
 
 ## Завдання 4 — Додати власний репортер *(опційно)*
@@ -250,6 +290,13 @@ reporter: [
 
 ---
 
+### Артефакти до завдання 4
+-**Скриншоти  прогону:**
+![Запуск власного репорта з failed](screenshots/task-4-terminal-failed.png)
+![Запуск власного репортера passed](screenshots/task-4-terminal-passed.png)
+![Запуск усіх репортерів разом](screenshots/task-4-terminal-all-reports.png)
+---
+
 ## Підсумок: що здавати
 
 | # | Артефакт | Завдання |
@@ -263,6 +310,29 @@ reporter: [
 | 7 | Файл `test-results/results.xml` | 1 |
 
 ---
+### Артефакти
+1. Репозиторій: конфіг, тести, власний репортер => Pull Request
+2. README з відповідями (вписати прямо в цей файл): вибір репортерів, аналіз падіння, порівняння з агентом, опис фіксу => Pull Request
+3. 	Скриншот терміналу з результатом прогону тестів до завдання 1:
+![Результат запуску тестів - частина 1](screenshots/task-1-terminal-1.png)
+![Результат запуску тестів - частина 2](screenshots/task-1-terminal-2.png)
+4. Скриншоти HTML-репорту та Trace Viewer впалого тесту до завдання1:
+![Результат запуску тестів - html report - частина 1](screenshots/task-1-html-1.png)
+![Результат запуску тестів - html report - частина 2](screenshots/task-1-html-2.png)
+![Результат запуску тестів - trace viewer - частина 1](screenshots/task-1-trace.png)
+5. Скриншот успішного прогону (всі тести green) до завдання 3:
+![Завдання 3 - terminal](screenshots/task-3-terminal.png)
+![Завдання 3 - report](screenshots/task-3-report.png)
+6. Скриншот терміналу з виводом власного репортера до завдання 4:
+![Запуск власного репорта з failed](screenshots/task-4-terminal-failed.png)
+![Запуск власного репортера passed](screenshots/task-4-terminal-passed.png)
+![Запуск усіх репортерів разом](screenshots/task-4-terminal-all-reports.png)
+7. Файл test-results/results.xml до завдання 1:
+[Task 1 - results.xml](evidences/results.xml)
+
+---
+
+
 
 <a id="en"></a>
 

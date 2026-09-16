@@ -4,7 +4,8 @@ node_modules/
 # Playwright generated artifacts
 playwright-report/
 test-results/
-reports/
+reports/*
+!reports/summary-reporter.ts
 
 # IDE
 .vscode/

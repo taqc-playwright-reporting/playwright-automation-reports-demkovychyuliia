@@ -13,7 +13,7 @@ test.describe("GreenCityHome Page Guest Role", () => {
       await expect(page).toHaveURL("https://www.greencity.cx.ua/#/greenCity");
     });
     test("3. should display correct logo", async ({ page }) => {
-      await expect(page.getByAltText(/greencity-logo/i).first()).toBeVisible();
+      await expect(page.getByAltText(/Image green city logo/i).first()).toBeVisible();
     });
     test("4. should display navigation menu", async ({ page }) => {
       const navigationMenu = page.getByRole("tablist");
@@ -36,7 +36,7 @@ test.describe("GreenCityHome Page Guest Role", () => {
       await expect(page.getByRole('menuitem', { name: 'Uk' })).toBeVisible();
     });
     test('7. should display login button', async ({ page }) => {
-      await expect(page.getByRole('link', { name: 'sing in button' })).toBeVisible();
+      await expect(page.getByRole('img', { name: 'sing in button' })).toBeVisible();
     });
     test('8. should display register button', async ({ page }) => {
       await expect(page.getByRole('link', { name: 'Sign up' })).toBeVisible();
@@ -48,13 +48,14 @@ test.describe("GreenCityHome Page Guest Role", () => {
     });
     test('10. should home page has search input', async ({ page }) => {
       await expect(page.getByRole('search', { name: 'site search' })).toBeVisible();
+      await page.getByAltText('Internal search button').click();
       await expect(page.getByPlaceholder(/search/i)).toBeVisible();
     });
   });
   test.describe('Main Content Section', () => {
     test('1. should display home page text', async ({ page }) => {
       await expect(
-        page.getByRole('heading', { name: /A new way to grow habits/i }),
+        page.getByRole('heading', { name: /A new way to cultivate useful habits/i }),
       ).toBeVisible();
     });
     test('2. Hero CTA button "Start forming a habit!" is visible', async ({ page }) => {
@@ -75,7 +76,7 @@ test.describe("GreenCityHome Page Guest Role", () => {
       await expect(subscribeButton).toBeEnabled();
 
       await emailInput.fill('test123@example.com');
-      await expect(emailInput).toHaveValue('test@example.com');
+      await expect(emailInput).toHaveValue('test123@example.com');
       await subscribeButton.click();
     });
   });
@@ -87,6 +88,7 @@ test.describe("GreenCityHome Page Guest Role", () => {
       await expect(footer.locator('ul').first().getByRole('link')).toHaveText([
         'Eco news',
         'Events',
+        'Places',
         'About Us',
         'My Space',
         'UBS Courier',
@@ -96,7 +98,7 @@ test.describe("GreenCityHome Page Guest Role", () => {
     test('2. Footer "Follow us" social links are visible', async ({ page }) => {
       const footer = page.locator('footer');
       await expect(footer.getByRole('link', { name: /twitter/i })).toBeVisible();
-      await expect(footer.getByRole('link', { name: /leenkedin/i })).toBeVisible();
+      await expect(footer.getByRole('link', { name: /linkedin/i })).toBeVisible();
       await expect(footer.getByRole('link', { name: /facebook/i })).toBeVisible();
       await expect(footer.getByRole('link', { name: /instagram/i })).toBeVisible();
       await expect(footer.getByRole('link', { name: /youtube/i })).toBeVisible();

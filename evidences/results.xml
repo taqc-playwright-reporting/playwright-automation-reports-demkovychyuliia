@@ -1,0 +1,347 @@
+<testsuites id="" name="" tests="16" failures="7" skipped="0" errors="0" time="31.001531">
+<testsuite name="home-page.spec.ts" timestamp="2026-09-16T16:01:28.320Z" hostname="chromium" tests="16" failures="7" skipped="0" time="154.502" errors="0">
+<testcase name="GreenCityHome Page Guest Role › Header › 1. should display the home page" classname="home-page.spec.ts" time="8.652">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 2. should display correct url" classname="home-page.spec.ts" time="10.192">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 3. should display correct logo" classname="home-page.spec.ts" time="14.778">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-page-GreenCityHome-Pa-1c388-should-display-correct-logo-chromium\error-context.md]]
+
+[[ATTACHMENT|home-page-GreenCityHome-Pa-1c388-should-display-correct-logo-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [chromium] › home-page.spec.ts:15:9 › GreenCityHome Page Guest Role › Header › 3. should display correct logo 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByAltText(/greencity-logo/i).first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByAltText(/greencity-logo/i).first()
+
+
+      14 |     });
+      15 |     test("3. should display correct logo", async ({ page }) => {
+    > 16 |       await expect(page.getByAltText(/greencity-logo/i).first()).toBeVisible();
+         |                                                                  ^
+      17 |     });
+      18 |     test("4. should display navigation menu", async ({ page }) => {
+      19 |       const navigationMenu = page.getByRole("tablist");
+        at C:\Users\yuliia.demkovych\Downloads\SoftServe\HW Reporters3\playwright-automation-reports-demkovychyuliia\tests\home-page.spec.ts:16:66
+
+    Error Context: ..\test-results\home-page-GreenCityHome-Pa-1c388-should-display-correct-logo-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\home-page-GreenCityHome-Pa-1c388-should-display-correct-logo-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\home-page-GreenCityHome-Pa-1c388-should-display-correct-logo-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 4. should display navigation menu" classname="home-page.spec.ts" time="8.977">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 5. should display search button" classname="home-page.spec.ts" time="21.232">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 6. should display language switcher" classname="home-page.spec.ts" time="8.029">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 7. should display login button" classname="home-page.spec.ts" time="12.526">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-page-GreenCityHome-Pa-bd86b-should-display-login-button-chromium\error-context.md]]
+
+[[ATTACHMENT|home-page-GreenCityHome-Pa-bd86b-should-display-login-button-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [chromium] › home-page.spec.ts:38:9 › GreenCityHome Page Guest Role › Header › 7. should display login button 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('link', { name: 'sing in button' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: 'sing in button' })
+
+
+      37 |     });
+      38 |     test('7. should display login button', async ({ page }) => {
+    > 39 |       await expect(page.getByRole('link', { name: 'sing in button' })).toBeVisible();
+         |                                                                        ^
+      40 |     });
+      41 |     test('8. should display register button', async ({ page }) => {
+      42 |       await expect(page.getByRole('link', { name: 'Sign up' })).toBeVisible();
+        at C:\Users\yuliia.demkovych\Downloads\SoftServe\HW Reporters3\playwright-automation-reports-demkovychyuliia\tests\home-page.spec.ts:39:72
+
+    Error Context: ..\test-results\home-page-GreenCityHome-Pa-bd86b-should-display-login-button-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\home-page-GreenCityHome-Pa-bd86b-should-display-login-button-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\home-page-GreenCityHome-Pa-bd86b-should-display-login-button-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 8. should display register button" classname="home-page.spec.ts" time="4.116">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 9. should display second nav menu" classname="home-page.spec.ts" time="4.473">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Header › 10. should home page has search input" classname="home-page.spec.ts" time="9.352">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-page-GreenCityHome-Pa-e3763--home-page-has-search-input-chromium\error-context.md]]
+
+[[ATTACHMENT|home-page-GreenCityHome-Pa-e3763--home-page-has-search-input-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [chromium] › home-page.spec.ts:49:9 › GreenCityHome Page Guest Role › Header › 10. should home page has search input 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByPlaceholder(/search/i)
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByPlaceholder(/search/i)
+
+
+      49 |     test('10. should home page has search input', async ({ page }) => {
+      50 |       await expect(page.getByRole('search', { name: 'site search' })).toBeVisible();
+    > 51 |       await expect(page.getByPlaceholder(/search/i)).toBeVisible();
+         |                                                      ^
+      52 |     });
+      53 |   });
+      54 |   test.describe('Main Content Section', () => {
+        at C:\Users\yuliia.demkovych\Downloads\SoftServe\HW Reporters3\playwright-automation-reports-demkovychyuliia\tests\home-page.spec.ts:51:54
+
+    Error Context: ..\test-results\home-page-GreenCityHome-Pa-e3763--home-page-has-search-input-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\home-page-GreenCityHome-Pa-e3763--home-page-has-search-input-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\home-page-GreenCityHome-Pa-e3763--home-page-has-search-input-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Main Content Section › 1. should display home page text" classname="home-page.spec.ts" time="10.087">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-page-GreenCityHome-Pa-38fb9-ould-display-home-page-text-chromium\error-context.md]]
+
+[[ATTACHMENT|home-page-GreenCityHome-Pa-38fb9-ould-display-home-page-text-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [chromium] › home-page.spec.ts:55:9 › GreenCityHome Page Guest Role › Main Content Section › 1. should display home page text 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: /A new way to grow habits/i })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /A new way to grow habits/i })
+
+
+      56 |       await expect(
+      57 |         page.getByRole('heading', { name: /A new way to grow habits/i }),
+    > 58 |       ).toBeVisible();
+         |         ^
+      59 |     });
+      60 |     test('2. Hero CTA button "Start forming a habit!" is visible', async ({ page }) => {
+      61 |       const button = page.getByRole('button', { name: /start forming a habit/i }).first();
+        at C:\Users\yuliia.demkovych\Downloads\SoftServe\HW Reporters3\playwright-automation-reports-demkovychyuliia\tests\home-page.spec.ts:58:9
+
+    Error Context: ..\test-results\home-page-GreenCityHome-Pa-38fb9-ould-display-home-page-text-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\home-page-GreenCityHome-Pa-38fb9-ould-display-home-page-text-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\home-page-GreenCityHome-Pa-38fb9-ould-display-home-page-text-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Main Content Section › 2. Hero CTA button &quot;Start forming a habit!&quot; is visible" classname="home-page.spec.ts" time="6.939">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Main Content Section › 3. Eco bags habit tracking card is visible" classname="home-page.spec.ts" time="5.925">
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Main Content Section › 4. Newsletter subscription form accepts email input and Subscribe button is clickable" classname="home-page.spec.ts" time="10.979">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-page-GreenCityHome-Pa-9275b-bscribe-button-is-clickable-chromium\error-context.md]]
+
+[[ATTACHMENT|home-page-GreenCityHome-Pa-9275b-bscribe-button-is-clickable-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  [chromium] › home-page.spec.ts:69:9 › GreenCityHome Page Guest Role › Main Content Section › 4. Newsletter subscription form accepts email input and Subscribe button is clickable 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('textbox', { name: /email/i })
+    Expected: "test@example.com"
+    Received: "test123@example.com"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" with timeout 5000ms
+      - waiting for getByRole('textbox', { name: /email/i })
+        14 × locator resolved to <input type="email" _ngcontent-ng-c3397674167="" placeholder="Enter your email" class="ng-untouched ng-valid ng-dirty"/>
+           - unexpected value "test123@example.com"
+
+
+      76 |
+      77 |       await emailInput.fill('test123@example.com');
+    > 78 |       await expect(emailInput).toHaveValue('test@example.com');
+         |                                ^
+      79 |       await subscribeButton.click();
+      80 |     });
+      81 |   });
+        at C:\Users\yuliia.demkovych\Downloads\SoftServe\HW Reporters3\playwright-automation-reports-demkovychyuliia\tests\home-page.spec.ts:78:32
+
+    Error Context: ..\test-results\home-page-GreenCityHome-Pa-9275b-bscribe-button-is-clickable-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\home-page-GreenCityHome-Pa-9275b-bscribe-button-is-clickable-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\home-page-GreenCityHome-Pa-9275b-bscribe-button-is-clickable-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Footer Section › 1. Footer navigation links are visible" classname="home-page.spec.ts" time="8.883">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-page-GreenCityHome-Pa-c2536-avigation-links-are-visible-chromium\error-context.md]]
+
+[[ATTACHMENT|home-page-GreenCityHome-Pa-c2536-avigation-links-are-visible-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [chromium] › home-page.spec.ts:84:9 › GreenCityHome Page Guest Role › Footer Section › 1. Footer navigation links are visible 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('footer').locator('ul').first().getByRole('link')
+    Timeout: 5000ms
+    - Expected  - 5
+    + Received  + 6
+
+      Array [
+    -   "Eco news",
+    -   "Events",
+    -   "About Us",
+    -   "My Space",
+    -   "UBS Courier",
+    +   " Eco news ",
+    +   " Events ",
+    +   " Places ",
+    +   " About Us ",
+    +   " My Space ",
+    +   " UBS Courier ",
+      ]
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for locator('footer').locator('ul').first().getByRole('link')
+        13 × locator resolved to 6 elements
+
+
+      85 |       const footer = page.locator('footer');
+      86 |       await expect(footer).toBeVisible();
+    > 87 |       await expect(footer.locator('ul').first().getByRole('link')).toHaveText([
+         |                                                                    ^
+      88 |         'Eco news',
+      89 |         'Events',
+      90 |         'About Us',
+        at C:\Users\yuliia.demkovych\Downloads\SoftServe\HW Reporters3\playwright-automation-reports-demkovychyuliia\tests\home-page.spec.ts:87:68
+
+    Error Context: ..\test-results\home-page-GreenCityHome-Pa-c2536-avigation-links-are-visible-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\home-page-GreenCityHome-Pa-c2536-avigation-links-are-visible-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\home-page-GreenCityHome-Pa-c2536-avigation-links-are-visible-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="GreenCityHome Page Guest Role › Footer Section › 2. Footer &quot;Follow us&quot; social links are visible" classname="home-page.spec.ts" time="9.362">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-page-GreenCityHome-Pa-79303-us-social-links-are-visible-chromium\error-context.md]]
+
+[[ATTACHMENT|home-page-GreenCityHome-Pa-79303-us-social-links-are-visible-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [chromium] › home-page.spec.ts:96:9 › GreenCityHome Page Guest Role › Footer Section › 2. Footer "Follow us" social links are visible 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('footer').getByRole('link', { name: /leenkedin/i })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('footer').getByRole('link', { name: /leenkedin/i })
+
+
+       97 |       const footer = page.locator('footer');
+       98 |       await expect(footer.getByRole('link', { name: /twitter/i })).toBeVisible();
+    >  99 |       await expect(footer.getByRole('link', { name: /leenkedin/i })).toBeVisible();
+          |                                                                      ^
+      100 |       await expect(footer.getByRole('link', { name: /facebook/i })).toBeVisible();
+      101 |       await expect(footer.getByRole('link', { name: /instagram/i })).toBeVisible();
+      102 |       await expect(footer.getByRole('link', { name: /youtube/i })).toBeVisible();
+        at C:\Users\yuliia.demkovych\Downloads\SoftServe\HW Reporters3\playwright-automation-reports-demkovychyuliia\tests\home-page.spec.ts:99:70
+
+    Error Context: ..\test-results\home-page-GreenCityHome-Pa-79303-us-social-links-are-visible-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\home-page-GreenCityHome-Pa-79303-us-social-links-are-visible-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\home-page-GreenCityHome-Pa-79303-us-social-links-are-visible-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>
